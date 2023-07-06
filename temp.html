@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Temperature Converter</title>
+  <style>
+    .container {
+      margin: 20px auto;
+      width: 300px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Temperature Converter</h2>
+    <input type="number" id="inputTemperature" placeholder="Enter temperature" />
+    <select id="inputUnit">
+      <option value="celsius">Celsius</option>
+      <option value="fahrenheit">Fahrenheit</option>
+    </select>
+    <button onclick="convertTemperature()">Convert</button>
+    <p id="result">Result</p>
+  </div>
+
+  <script>
+    function convertTemperature() {
+      var inputTemperature = document.getElementById("inputTemperature").value;
+      var inputUnit = document.getElementById("inputUnit").value;
+      var result = document.getElementById("result");
+
+      if (inputUnit === "celsius") {
+        var convertedTemperature = (inputTemperature * 9/5) + 32;
+        result.textContent = inputTemperature + " Celsius is " + convertedTemperature + " Fahrenheit.";
+      } else if (inputUnit === "fahrenheit") {
+        var convertedTemperature = (inputTemperature - 32) * 5/9;
+        result.textContent = inputTemperature + " Fahrenheit is " + convertedTemperature + " Celsius.";
+      }
+    }
+  </script>
+</body>
+</html>
